@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="main.css">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>download</title>
+</head>
+
+<body>
+
+    <div class="download-options">
+
+    </div>
+
+</body>
+<script>
+    var files = JSON.parse('<%-  files %>')
+    var downloadOptionsHTML = document.getElementsByClassName('download-options')[0]
+
+
+    function parseFiles(files) {
+        function filesize(bytes, decimals = 2) {
+            if (!+bytes) return '0 Bytes'
+
+            const k = 1024
+            const dm = decimals < 0 ? 0 : decimals
+            const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+
+            const i = Math.floor(Math.log(bytes) / Math.log(k))
+
+            return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`
+        }
+        var fileblacklist = ['System Volume Information', '.Trash-1000', 'FOUND.000', '$RECYCLE.BIN']
+
+        for (i = 0; i < files.length; i++) {
+            if (!fileblacklist.includes(files[i].folderid)) {
+                downloadOptionsHTML.innerHTML += `
+                <div class="download-option">
+                    <label class="download-name">${files[i].name}
+                        <a href="https://www.google.com/search?q=${files[i].name}" target=_blank>
+                            <img class="logo" src="google.png">
+                        </a>
+                    </label>
+                    <label class="download-id">
+                        ${files[i].folderid}
+                    </label>
+                    <p class="download-size">${filesize(files[i].size)}</p>
+                        
+                    <p class="download-author">${'<%- author.name %>'}</p>
+                    <button><a href="/download/file/${files[i].folderid}">download</a></button>
+                </div>
+            `
+            }
+
+        }
+
+    }
+    parseFiles(files)
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+body {
+  color: whitesmoke;
+  font-family: Ubuntu;
+  background-color: rgb(41, 41, 41);
+}
+
+button {
+  border-radius: 2.5px;
+  border: none;
+  cursor: pointer;
+  background-color: rgb(72, 161, 91);
+  outline: 2px solid transparent;
+  float: right;
+}
+button a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.download-options {
+  display: inline-grid;
+  grid-template-columns: auto auto auto;
+  gap: 1rem;
+}
+
+.download-option {
+  min-width: 12rem;
+  max-width: 15rem;
+  border-radius: 2.5px;
+  padding: 1rem;
+  margin: 0rem;
+  background-color: rgb(71, 71, 71);
+}
+.download-option button {
+  position: relative;
+  z-index: 2;
+}
+.download-option .download-id {
+  display: block;
+  position: relative;
+  background-color: transparent;
+  transform: translateY(-0.2rem);
+  font-size: 0.7rem;
+  letter-spacing: 0.2rem;
+  opacity: 0.4;
+}
+.download-option .download-author {
+  position: relative;
+  z-index: 2;
+  font-size: 0.7rem;
+  position: absolute;
+  transform: translateY(-0.6rem);
+  background-image: linear-gradient(90deg, rgb(255, 165, 0), rgb(255, 208, 0), rgb(255, 187, 0), rgb(255, 165, 0));
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  font-weight: bold;
+}
+.download-option .download-author::before {
+  content: "uploaded by : ";
+  font-weight: lighter;
+  color: rgb(235, 235, 235);
+  background-image: none;
+  background-clip: none;
+}
+.download-option .download-name {
+  position: relative;
+}
+.download-option .logo {
+  transform: translateY(0.1rem);
+  border-radius: 2.5px;
+  width: 1rem;
+  height: 1rem;
+  float: right;
+}
+.download-option .download-size {
+  font-size: 0.8rem;
+}
+
+.download-option::before {
+  min-width: 11.95rem;
+  max-width: 15rem;
+  height: 0.6rem;
+  padding: 1rem;
+  margin: 0rem;
+  border-radius: 2.5px;
+  background-color: rgb(85, 85, 85);
+  position: absolute;
+  content: "";
+  transform: translate(-0.95rem, 4.3rem);
+  z-index: 1;
+}/*# sourceMappingURL=main.css.map */
